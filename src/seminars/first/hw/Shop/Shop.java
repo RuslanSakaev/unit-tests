@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Shop {
     private List<Product> products;
+    private static final Product nullProduct = new Product("No Product", 0);
+
 
     // Геттеры, сеттеры:
     public List<Product> getProducts() {
@@ -17,14 +19,23 @@ public class Shop {
 
     // Метод должен вернуть отсортированный по возрастанию по цене список продуктов
     public List<Product> sortProductsByPrice() {
-        // Допишите реализацию метода самостоятельно
-        return null;
+        products.sort(Comparator.comparing(Product::getCost));
+        return products;
     }
 
     // Метод должен вернуть самый дорогой продукт
     public Product getMostExpensiveProduct() {
-        // Допишите реализацию метода самостоятельно
-        return null;
+        if (products.isEmpty()) {
+            return nullProduct;
+        }
+
+        Product mostExpensive = products.get(0);
+        for (Product product : products) {
+            if (product.getCost() > mostExpensive.getCost()) {
+                mostExpensive = product;
+            }
+        }
+        return mostExpensive;
     }
 
 }
