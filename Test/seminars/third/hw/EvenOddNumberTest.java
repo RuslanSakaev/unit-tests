@@ -1,39 +1,48 @@
 package seminars.third.hw;
 
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.junit.Test;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EvenOddNumberTest {
+    private static MainHW mainHW;
+
+    @BeforeClass
+    public static void setUp() {
+        mainHW = new MainHW();
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        // Вы можете добавить здесь код очистки, если это необходимо
+    }
+
     @Test
     public void testEvenNumber() {
-        MainHW mainHW = new MainHW();
         assertTrue(mainHW.evenOddNumber(4));
     }
 
     @Test
     public void testOddNumber() {
-        MainHW mainHW = new MainHW();
         assertFalse(mainHW.evenOddNumber(7));
     }
 
     @Test
     public void testZeroIsEven() {
-        MainHW mainHW = new MainHW();
         assertTrue(mainHW.evenOddNumber(0));
     }
 
     @Test
     public void testNegativeEvenNumber() {
-        MainHW mainHW = new MainHW();
         assertTrue(mainHW.evenOddNumber(-2));
     }
 
     @Test
     public void testNegativeOddNumber() {
-        MainHW mainHW = new MainHW();
         assertFalse(mainHW.evenOddNumber(-3));
     }
 }
+
 
