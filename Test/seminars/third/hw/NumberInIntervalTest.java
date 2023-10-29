@@ -17,7 +17,6 @@ public class NumberInIntervalTest {
 
     @After
     public void tearDown() {
-        // Вы можете добавить здесь код очистки, если это необходимо
     }
 
     @Test

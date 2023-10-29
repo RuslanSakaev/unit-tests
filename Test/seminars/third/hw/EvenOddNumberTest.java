@@ -16,7 +16,6 @@ public class EvenOddNumberTest {
 
     @AfterClass
     public static void tearDown() {
-        // Вы можете добавить здесь код очистки, если это необходимо
     }
 
     @Test
