@@ -5,7 +5,7 @@ public class User {
     String name;
     String password;
     boolean isAdmin;
-    boolean isAuthenticate = false;
+    public boolean isAuthenticate = false;
 
     public User(String name, String password, boolean isAdmin) {
         this.name = name;
@@ -25,5 +25,9 @@ public class User {
 
     public void logOut() {
         this.isAuthenticate = false;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
     }
 }
