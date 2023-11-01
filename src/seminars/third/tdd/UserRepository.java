@@ -1,10 +1,11 @@
 package seminars.third.tdd;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class UserRepository {
-    List<User> data = new ArrayList<>();
+    public List<User> data = new ArrayList<>();
 
     public void addUser(User user) {
         if (user.isAuthenticate) {
@@ -21,9 +22,14 @@ public class UserRepository {
         return false;
     }
 
-    public void logoutAll() {
-        for (int i = 0; i < data.size(); i++) {
-            data.get(i).isAuthenticate = false;
+    public void logOutNonAdmins() {
+        Iterator<User> iterator = data.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
+            if (!user.isAdmin()) {
+                user.logOut();
+                iterator.remove();
+            }
         }
     }
 }
