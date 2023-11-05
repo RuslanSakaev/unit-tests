@@ -17,6 +17,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SeleniumTest {
+    // https://github.com/google/guava/releases - ссылка для скачивания Гуава
 
     private WebDriver webDriver;
 
