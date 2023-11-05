@@ -61,6 +61,11 @@
             <artifactId>mockito-core</artifactId>
             <version>5.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.openrefine</groupId>
+            <artifactId>jython</artifactId>
+            <version>3.7.2</version>
+        </dependency>
     </dependencies>
 
     <build>
