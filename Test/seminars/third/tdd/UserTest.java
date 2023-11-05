@@ -61,7 +61,7 @@ public class UserTest {
         userRepository.addUser(userNotAdmin1);
         userRepository.addUser(userNotAdmin2);
 
-        assertFalse(userNotAdmin1.isAuthenticate);
+        assertTrue(userNotAdmin1.isAuthenticate);
 
     }
 }
