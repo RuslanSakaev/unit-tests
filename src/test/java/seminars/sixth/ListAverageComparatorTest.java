@@ -11,11 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ListAverageComparatorTest {
-    private ListAverageComparator<Number> listAverageComparator;
+    private final ListAverageComparator<Number> listAverageComparator = new ListAverageComparator<>();
 
     @BeforeEach
     void setUp() {
-        listAverageComparator = new ListAverageComparator<>();
     }
 
     @Test
@@ -148,8 +147,6 @@ class ListAverageComparatorTest {
 
         int decimalPlaces = 1;
 
-        assertThrows(NullPointerException.class, () -> {
-            listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
-        });
+        assertThrows(NullPointerException.class, () -> listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces));
     }
 }
