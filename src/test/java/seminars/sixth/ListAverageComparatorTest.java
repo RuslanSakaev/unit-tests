@@ -21,14 +21,16 @@ class ListAverageComparatorTest {
     @Test
     void testCompareAveragesWithPrecision_FloatAndInteger() {
         List<Number> list1 = new ArrayList<>();
-        list1.add(1.0f);
-        list1.add(2);
-        list1.add(3.0f);
+        list1.add(1.063463f);
+        list1.add(2.0665f);
+        list1.add(3.00552f);
+        list1.add(6.00008f);
 
         List<Number> list2 = new ArrayList<>();
         list2.add(2);
-        list2.add(3.0f);
-        list2.add(4);
+        list2.add(1);
+        list2.add(3);
+        list2.add(6);
 
         int decimalPlaces = 1;
         String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
@@ -39,14 +41,16 @@ class ListAverageComparatorTest {
     @Test
     void testCompareAveragesWithPrecision_FloatAndDouble() {
         List<Number> list1 = new ArrayList<>();
-        list1.add(1.5f);
-        list1.add(2.5);
-        list1.add(3.5f);
+        list1.add(1.25047f);
+        list1.add(2.25084f);
+        list1.add(3.050874f);
+        list1.add(0.50874f);
+        list1.add(0.450874f);
 
         List<Number> list2 = new ArrayList<>();
-        list2.add(2.5);
-        list2.add(3.5f);
-        list2.add(4.5);
+        list2.add(1.2);
+        list2.add(1.3);
+        list2.add(2.1);
 
         int decimalPlaces = 1;
         String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
@@ -58,13 +62,13 @@ class ListAverageComparatorTest {
     void testCompareAveragesWithPrecision_FloatAndNegative() {
         List<Number> list1 = new ArrayList<>();
         list1.add(-1.5f);
-        list1.add(-2.5);
+        list1.add(-2.5f);
         list1.add(-3.5f);
 
         List<Number> list2 = new ArrayList<>();
+        list2.add(-1.5);
         list2.add(-2.5);
-        list2.add(-3.5f);
-        list2.add(-4.5);
+        list2.add(-3.5);
 
         int decimalPlaces = 1;
         String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
@@ -73,18 +77,18 @@ class ListAverageComparatorTest {
     }
 
     @Test
-    void testCompareAveragesWithPrecision_DoubleAndNegative() {
+    void testCompareAveragesWithPrecision_ExtremeValues() {
         List<Number> list1 = new ArrayList<>();
-        list1.add(-1.5);
-        list1.add(-2.5);
-        list1.add(-3.5);
+        list1.add(Double.MAX_VALUE); // Максимальное значение Double
+        list1.add(Double.MIN_VALUE); // Минимальное положительное значение Double
+        list1.add(Integer.MAX_VALUE); // Максимальное значение int
 
         List<Number> list2 = new ArrayList<>();
-        list2.add(-2.5);
-        list2.add(-3.5);
-        list2.add(-4.5);
+        list2.add(Float.MAX_VALUE); // Максимальное значение Float
+        list2.add(-Float.MIN_VALUE); // Минимальное положительное значение Float
+        list2.add(-Integer.MAX_VALUE); // Отрицательное значение int
 
-        int decimalPlaces = 1;
+        int decimalPlaces = 2147483647;
         String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
 
         assertEquals("Средние значения равны", result);
@@ -93,8 +97,8 @@ class ListAverageComparatorTest {
     @Test
     void testCompareAveragesWithPrecision_Integers() {
         List<Number> list1 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
+        list1.add(8);
+        list1.add(22);
         list1.add(3);
 
         List<Number> list2 = new ArrayList<>();
@@ -122,14 +126,14 @@ class ListAverageComparatorTest {
     @Test
     void testCompareAveragesWithPrecision_DifferentDecimalPlaces() {
         List<Number> list1 = new ArrayList<>();
-        list1.add(1.5);
-        list1.add(2.5);
-        list1.add(3.5);
+        list1.add(1.55);
+        list1.add(2.55);
+        list1.add(3.55);
 
         List<Number> list2 = new ArrayList<>();
         list2.add(2.5);
         list2.add(3.5);
-        list2.add(4.5);
+        list2.add(1.5);
 
         int decimalPlaces = 2;
         String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
