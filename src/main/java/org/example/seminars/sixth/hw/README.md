@@ -75,7 +75,7 @@ https://github.com/RuslanSakaev/unit-tests/blob/master/src/test/java/seminars/si
 - Код тестов:
   https://github.com/RuslanSakaev/unit-tests/blob/master/src/test/java/seminars/sixth/ListAverageComparatorTest.java
 - Отчет Checkstyle:
-  ![1](https://github.com/RuslanSakaev/unit-tests/blob/master/Sonar/1.png)
+  ![Скрин](https://github.com/RuslanSakaev/unit-tests/raw/master/Sonar/1.png)
 - Отчет о покрытии тестами:
   https://github.com/RuslanSakaev/unit-tests/blob/master/RepoCov/index.html
 - Объяснение того, какие сценарии покрыты тестами и почему вы выбрали именно эти сценарии.
