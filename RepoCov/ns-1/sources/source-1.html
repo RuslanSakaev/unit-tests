@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1251"> 
+  <title>Coverage Report > ListAverageComparator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example.seminars.sixth.hw</a>
+</div>
+
+<h1>Coverage Summary for Class: ListAverageComparator (org.example.seminars.sixth.hw)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ListAverageComparator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88,2%
+  </span>
+  <span class="absValue">
+    (15/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example.seminars.sixth.hw;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+<b class="fc">&nbsp;public class ListAverageComparator&lt;T extends Number&gt; {</b>
+&nbsp;
+&nbsp;    // Метод, который приводит среднее значение к заданной точности
+&nbsp;    public double roundToPrecision(double value, int decimalPlaces) {
+<b class="fc">&nbsp;        double scale = Math.pow(10, decimalPlaces);</b>
+<b class="fc">&nbsp;        return Math.round(value * scale) / scale;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Метод, который сравнивает средние значения списков с заданной точностью
+&nbsp;    public String compareAveragesWithPrecision(List&lt;T&gt; list1, List&lt;T&gt; list2, int decimalPlaces) {
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        double average1 = calculateAverage(list1);</b>
+<b class="fc">&nbsp;        double average2 = calculateAverage(list2);</b>
+&nbsp;
+<b class="fc">&nbsp;        average1 = roundToPrecision(average1, decimalPlaces);</b>
+<b class="fc">&nbsp;        average2 = roundToPrecision(average2, decimalPlaces);</b>
+&nbsp;
+<b class="fc">&nbsp;        if (average1 &gt; average2) {</b>
+<b class="nc">&nbsp;            return &quot;Первый список имеет большее среднее значение&quot;;</b>
+<b class="fc">&nbsp;        } else if (average2 &gt; average1) {</b>
+<b class="fc">&nbsp;            return &quot;Второй список имеет большее среднее значение&quot;;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return &quot;Средние значения равны&quot;;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public double calculateAverage(List&lt;T&gt; list) {
+&nbsp;
+<b class="fc">&nbsp;        double sum = 0.0;</b>
+<b class="fc">&nbsp;        for (T number : list) {</b>
+<b class="fc">&nbsp;            sum += number.doubleValue();</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return sum / list.size();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-06 05:29</div>
+</div>
+</body>
+</html>
