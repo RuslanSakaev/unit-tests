@@ -4,15 +4,6 @@ import java.util.List;
 
 public class ListAverageComparator<T extends Number> {
 
-    // Метод, который проверяет, что список содержит числовые типы (Double, Float, Integer и т.д.)
-    private void areValidNumbers(List<T> list) {
-        for (T number : list) {
-            if (!(number instanceof Double || number instanceof Float || number instanceof Integer || number instanceof Long)) {
-                throw new IllegalArgumentException("Список содержит недопустимые типы данных.");
-            }
-        }
-    }
-
     // Метод, который приводит среднее значение к заданной точности
     public double roundToPrecision(double value, int decimalPlaces) {
         double scale = Math.pow(10, decimalPlaces);
@@ -21,8 +12,7 @@ public class ListAverageComparator<T extends Number> {
 
     // Метод, который сравнивает средние значения списков с заданной точностью
     public String compareAveragesWithPrecision(List<T> list1, List<T> list2, int decimalPlaces) {
-        areValidNumbers(list1);
-        areValidNumbers(list2);
+
 
         double average1 = calculateAverage(list1);
         double average2 = calculateAverage(list2);
@@ -39,10 +29,7 @@ public class ListAverageComparator<T extends Number> {
         }
     }
 
-    private double calculateAverage(List<T> list) {
-        if (list.isEmpty()) {
-            return 0.0;
-        }
+    public double calculateAverage(List<T> list) {
 
         double sum = 0.0;
         for (T number : list) {

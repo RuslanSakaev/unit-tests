@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ListAverageComparatorTest {
-    private final ListAverageComparator<Number> listAverageComparator = new ListAverageComparator<>();
+    private ListAverageComparator<Number> listAverageComparator = new ListAverageComparator<>();
 
     @BeforeEach
     void setUp() {
+        listAverageComparator = new ListAverageComparator<>();
     }
 
     @Test
@@ -148,5 +148,48 @@ class ListAverageComparatorTest {
         int decimalPlaces = 1;
 
         assertThrows(NullPointerException.class, () -> listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces));
+    }
+
+    @Test
+    void testCompareAveragesWithPrecision_SecondListGreater() {
+        List<Number> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(1);
+
+        List<Number> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+
+        int decimalPlaces = 2;
+        String result = listAverageComparator.compareAveragesWithPrecision(list1, list2, decimalPlaces);
+
+        assertEquals("Второй список имеет большее среднее значение", result);
+    }
+
+    @Test
+    void testCalculateAverage_Integers() {
+        List<Number> integerList = new ArrayList<>();
+        integerList.add(1);
+        integerList.add(2);
+        double result = listAverageComparator.calculateAverage(integerList);
+        assertEquals(1.5, result, 0.0001);
+    }
+
+    @Test
+    void testCalculateAverage_Floats() {
+        List<Number> floatList = new ArrayList<>();
+        floatList.add(1.5f);
+        floatList.add(2.5f);
+        double result = listAverageComparator.calculateAverage(floatList);
+        assertEquals(2.0, result, 0.0001);
+    }
+
+    @Test
+    void testCalculateAverage_Negatives() {
+        List<Number> negativeList = new ArrayList<>();
+        negativeList.add(-1);
+        negativeList.add(-2);
+        double result = listAverageComparator.calculateAverage(negativeList);
+        assertEquals(-1.5, result, 0.0001);
     }
 }

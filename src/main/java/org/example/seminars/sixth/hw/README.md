@@ -118,6 +118,11 @@ __testCompareAveragesWithPrecision_NullList():__
 Ожидается, что будет сгенерировано исключение NullPointerException, 
 так как метод compareAveragesWithPrecision не должен принимать null списков.
 
+__testCompareAveragesWithPrecision_SecondListGreater():__ 
+
+Этот тест проверяет, что метод CompareAveragesWithPrecision вернёт нужный текст, 
+если будут соблюдены условия сравнения.
+
 Все эти тесты были выбраны, чтобы покрыть различные сценарии использования и удостовериться, что ListAverageComparator 
 работает корректно для разных типов данных, включая различные числовые типы, отрицательные значения, пустые списки и 
 разное количество десятичных знаков при сравнении средних значений.
